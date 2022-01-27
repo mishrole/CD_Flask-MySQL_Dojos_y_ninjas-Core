@@ -18,8 +18,6 @@ class Dojo:
         for dojo in results:
             dojos.append(cls(dojo))
 
-        print(dojos)
-
         return dojos
     
     @classmethod
@@ -31,8 +29,6 @@ class Dojo:
             dojo = cls(results[0])
         else:
             dojo = []
-
-        print(dojo)
 
         for row_from_db in results:
             print(row_from_db)

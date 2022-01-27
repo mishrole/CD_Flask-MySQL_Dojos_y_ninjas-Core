@@ -1,6 +1,5 @@
 from flask import Flask, render_template, request, redirect
 from dojo_app import app
-# from dojo_app.models. import Ninja
 from dojo_app.models import dojoModel, ninjaModel
 
 @app.route('/ninjas', methods=['GET'])
@@ -18,7 +17,6 @@ def create_ninja():
     }
 
     ninja = ninjaModel.Ninja.save(data)
-    print(ninja)
 
     if ninja:
         return redirect(f'/dojos/{request.form["dojo"]}')
