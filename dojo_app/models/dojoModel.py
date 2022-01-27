@@ -1,5 +1,5 @@
 from dojo_app.config.mysqlconnection import connectToMySQL
-from dojo_app.models.ninjaModel import Ninja
+from dojo_app.models import ninjaModel
 
 class Dojo:
     def __init__(self, data):
@@ -45,7 +45,7 @@ class Dojo:
                 "updated_at": row_from_db['ninjas.updated_at']
             }
 
-            dojo.ninjas.append(Ninja(ninja_data))
+            dojo.ninjas.append(ninjaModel.Ninja(ninja_data))
         
         return dojo
 

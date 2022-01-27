@@ -1,11 +1,11 @@
 from flask import Flask, render_template, request, redirect
 from dojo_app import app
-from dojo_app.models.ninjaModel import Ninja
-from dojo_app.models.dojoModel import Dojo
+# from dojo_app.models. import Ninja
+from dojo_app.models import dojoModel, ninjaModel
 
 @app.route('/ninjas', methods=['GET'])
 def form():
-    dojos = Dojo.get_all()
+    dojos = dojoModel.Dojo.get_all()
     return render_template('ninja.html', dojos = dojos)
 
 @app.route('/create_ninja', methods=['POST'])
@@ -17,7 +17,7 @@ def create_ninja():
         "age": request.form["age"]
     }
 
-    ninja = Ninja.save(data)
+    ninja = ninjaModel.Ninja.save(data)
     print(ninja)
 
     if ninja:
